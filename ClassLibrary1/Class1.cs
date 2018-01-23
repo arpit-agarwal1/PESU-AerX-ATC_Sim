@@ -29,13 +29,19 @@ namespace StatesAndGrammars
             // TO DO
             // nature of emergency
             // intentions
-            
-            //state readbacks
+            //  state readbacks
             Choices answer = new Choices();
+            
             foreach (String[] i in state.readbackInfo)
-            {
-                if(i.Length == 0) { continue; }
-                answer.Add(i);
+            { try
+                {
+                    answer.Add(i);
+                }
+                catch
+                {
+                    ;
+                }
+                
             }
             GrammarBuilder gb_readback = new GrammarBuilder();
             GrammarBuilder gb_request = new GrammarBuilder();
